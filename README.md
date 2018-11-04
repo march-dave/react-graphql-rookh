@@ -1,4 +1,4 @@
-# react-graphql-rookh
+ock# react-graphql-rookh
 A simple deployment ready webpack-react Graphql Server and Apollo Client application for heroku
 
 ## Instructions
@@ -14,3 +14,13 @@ A simple deployment ready webpack-react Graphql Server and Apollo Client applica
 
 ## heroku link
 https://react-graphql-rookh.herokuapp.com/
+
+## docker
+build docker image
+docker build -t dave/docker-react-sample .
+
+run the docker image
+docker run -it --name sample -p 3000:3000 dave/docker-react-sample:latest /bin/bash
+
+go inside the container
+docker exec -it sample /bin/bash
