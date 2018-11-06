@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import ApolloClient from "Apollo-boost";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 
@@ -12,8 +11,6 @@ const getTodos = gql`
     }
   }
 `;
-
-
 
 class App extends Component {
   render() {
