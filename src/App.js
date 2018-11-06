@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ApolloClient } from "Apollo-boost";
+import ApolloClient from "Apollo-boost";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 
@@ -13,9 +13,7 @@ const getTodos = gql`
   }
 `;
 
-const myClient = new ApolloClient({
-  url: "https://react-graphql-rookh.herokuapp.com/graphql"
-});
+
 
 class App extends Component {
   render() {
@@ -25,7 +23,6 @@ class App extends Component {
           if (loading) return "Good";
           if (error) return "Not Good";
           if (data) {
-            console.log("sfjdldjl");
             return data.getTodos.map(c => c.task);
           }
         }}
