@@ -4,13 +4,13 @@ import { Query } from "react-apollo";
 import gql from "graphql-tag";
 
 const getTodos = gql`
-{
+  {
     getTodos {
-        id
-        task 
-        completed
+      id
+      task
+      completed
     }
-}
+  }
 `;
 
 const myClient = new ApolloClient({
@@ -19,7 +19,18 @@ const myClient = new ApolloClient({
 
 class App extends Component {
   render() {
-    return <Query></Query>;
+    return (
+      <Query query={getTodos}>
+        {({ loading, error, data }) => {
+          if (loading) return "Good";
+          if (error) return "Not Good";
+          if (data) {
+            console.log("sfjdldjl");
+            return data.getTodos.map(c => c.task);
+          }
+        }}
+      </Query>
+    );
   }
 }
 
