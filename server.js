@@ -9,14 +9,11 @@ const cors = require("cors");
 // Graphql Apollo Server 
 const { ApolloServer, gql } = require('apollo-server-express');
 
-
 // the __dirname is the current directory from where the script is running
 app.use(express.static(__dirname));
 
 app.use(cors(), bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
-
 
 const todos = [
   {id: 1, task: 'rook room', completed: false},
