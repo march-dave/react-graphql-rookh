@@ -4,7 +4,7 @@ class Basic extends Component {
     render() {
         return (
             <div>
-                
+                <input type="text"/>
             </div>
         );
     }
