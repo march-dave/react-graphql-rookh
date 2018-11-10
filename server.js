@@ -118,8 +118,8 @@ app.post('/auth/login_process',
   passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/auth/login',
-    failureFlash:true,
-    successFlash:true
+    // failureFlash:true,
+    // successFlash:true
   }));
 
 
