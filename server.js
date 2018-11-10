@@ -64,9 +64,9 @@ server.applyMiddleware({app});
 
 
 const authData = {
-  email: 'egoing777@gmail.com',
-  password: '111111',
-  nickname: 'egoing'
+  email: 'dave@abc.com',
+  password: '1234',
+  nickname: 'march-dave'
 };
 
 const passport = require('passport'),
