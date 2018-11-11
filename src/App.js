@@ -8,6 +8,7 @@ class App extends Component {
       <div>
         <Basic />
         <BasicInfo />
+        <Login />
       </div>
     );
   }
