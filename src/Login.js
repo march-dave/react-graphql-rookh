@@ -7,9 +7,13 @@ class Login extends Component {
   };
 
   handleSubmit = () => {
-    alert("submit");
     event.preventDefault();
+    alert("submit");
   };
+
+  onHanldeChange = (e) => {
+    [e.target.value] = e.target.value
+  }
 
   render() {
     return (
