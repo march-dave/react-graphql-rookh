@@ -1,17 +1,23 @@
 import React, { Component } from "react";
 
 class Login extends Component {
-  state = {
-    email: "",
-    password: ""
-  };
 
-  handleSubmit = () => {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: "",
+      password: ""
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.onHanldeChange = this.onHanldeChange.bind(this);
+  }
+
+  handleSubmit() {
     event.preventDefault();
     alert("submit");
   };
 
-  onHanldeChange = (e) => {
+  onHanldeChange(e) {
     [e.target.value] = e.target.value
   }
 
