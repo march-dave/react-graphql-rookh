@@ -6,6 +6,8 @@ const app = express();
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
+const jwt = reqire("jsonwebtoken");
+
 // Graphql Apollo Server
 const { ApolloServer, gql } = require("apollo-server-express");
 
