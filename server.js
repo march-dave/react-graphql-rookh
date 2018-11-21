@@ -80,7 +80,7 @@ const resolvers = {
 
       const dbuser = await {email: "dave@abc.com", password: "123"}
 
-      const tokengen = jwt.sign({email: args.email, password: hash}, 
+      const tokengen = jwt.sign({email: args.email, password: args.password}, 
         "JWT_SECRET"
       );
 
