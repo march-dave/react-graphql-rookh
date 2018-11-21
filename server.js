@@ -25,6 +25,10 @@ const todos = [
   { id: 4, task: "bishop room", completed: true }
 ];
 
+const users = [
+  {email: "dave@abc.com", password: "123", hashed: ""}
+]
+
 const typeDefs = gql`
   type Todo {
     id: Int
@@ -38,7 +42,8 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addTodo(task: String, completed: Boolean): Todo
+    addTodo(task: String, completed: Boolean): Todo,
+    login(email: String, password: String): Users
   }
 `;
 
@@ -58,6 +63,33 @@ const resolvers = {
       const todo = { task: args.task, completed: args.completed };
       todos.push(todo);
       return todo;
+    },
+
+    login: async(_, args) => {
+      
+      let loginuser = {};
+      bcrypt.hash(args.password, 12, (err, hash) => {
+        loginuser = {email: args.email, password: hash}
+      })
+
+      const dbuser = await {email: "dave@abc.com", password: "123"}
+
+      const tokengen = jwt.sign(loginuser, 
+        "JWT_SECRET"
+      );
+
+      users.push(tokengen);
+
+      // const t = 
+      // {
+      //   email: "dave@abc.com",
+      //   password: "123",
+      //   hashed: tokengen
+      // }
+
+      loginuser.hashed = tokengen;
+
+      return loginuser;
     }
   }
 };
