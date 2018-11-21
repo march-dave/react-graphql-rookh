@@ -36,6 +36,12 @@ const typeDefs = gql`
     completed: Boolean
   }
 
+  type Users {
+    email: String
+    password: String
+    hashed: String
+  }
+
   type Query {
     getTodos: [Todo]
     getTodo(id: Int): Todo
