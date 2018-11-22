@@ -72,8 +72,10 @@ const resolvers = {
     },
 
     login: async(_, args) => {
+
+      let hashedpassword = await bcrypt.hash(args.password, 12)
       
-      let loginuser = {email: args.email, password: args.password};
+      let loginuser = {email: args.email, password: hashedpassword};
       // let loginuser = bcrypt.hash(args.password, 12, (err, hash) => {
       //   return {email: args.email, password: hash}
       // })
