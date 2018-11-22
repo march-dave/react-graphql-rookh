@@ -74,19 +74,11 @@ const resolvers = {
     login: async(_, args) => {
 
       let hashedpassword = await bcrypt.hash(args.password, 12)
-      
       let loginuser = {email: args.email, password: hashedpassword};
-      // let loginuser = bcrypt.hash(args.password, 12, (err, hash) => {
-      //   return {email: args.email, password: hash}
-      // })
-
-      // const dbuser = await {email: "dave@abc.com", password: "123"}
 
       const tokengen = await jwt.sign(loginuser, 
         "JWT_SECRET"
       );
-
-      // users.push(tokengen);
 
       loginuser.hashed = tokengen;
 
