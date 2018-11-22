@@ -88,14 +88,10 @@ const resolvers = {
 
     verify: async(_, args) => {
 
-      let hashedpassword = await bcrypt.hash(args.password, 12)
+      let jwtverify = await bcrypt.verify("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFhYSIsInBhc3N3b3JkIjoiJDJhJDEyJEF4N3V1eGRMY1VUWVRKNnpNemVDUWVIaE5KQ2J2S1ptVDF1cTlaYy9IVE9FQU4vZ0pPUXZDIiwiaWF0IjoxNTQyODUzOTc3fQ.UZZQshz9U8Tlg1WSjTeIQqjsjkEwP1F0YM15bdeczbs", "JWT_SECRET")
       let loginuser = {email: args.email, password: hashedpassword};
 
-      const tokengen = await jwt.sign(loginuser, 
-        "JWT_SECRET"
-      );
-
-      loginuser.hashed = tokengen;
+      loginuser.hashed = jwtverify;
 
       return loginuser;
     }
