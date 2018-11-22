@@ -49,7 +49,8 @@ const typeDefs = gql`
 
   type Mutation {
     addTodo(task: String, completed: Boolean): Todo,
-    login(email: String, password: String): Users
+    login(email: String, password: String): !Users,
+    verify(email: String, password: String): !Users
   }
 `;
 
@@ -72,6 +73,20 @@ const resolvers = {
     },
 
     login: async(_, args) => {
+
+      let hashedpassword = await bcrypt.hash(args.password, 12)
+      let loginuser = {email: args.email, password: hashedpassword};
+
+      const tokengen = await jwt.sign(loginuser, 
+        "JWT_SECRET"
+      );
+
+      loginuser.hashed = tokengen;
+
+      return loginuser;
+    },
+
+    verify: async(_, args) => {
 
       let hashedpassword = await bcrypt.hash(args.password, 12)
       let loginuser = {email: args.email, password: hashedpassword};
