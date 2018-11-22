@@ -78,20 +78,13 @@ const resolvers = {
       //   return {email: args.email, password: hash}
       // })
 
-      const dbuser = await {email: "dave@abc.com", password: "123"}
+      // const dbuser = await {email: "dave@abc.com", password: "123"}
 
-      const tokengen = jwt.sign(loginuser, 
+      const tokengen = await jwt.sign(loginuser, 
         "JWT_SECRET"
       );
 
-      users.push(tokengen);
-
-      // const t = 
-      // {
-      //   email: "dave@abc.com",
-      //   password: "123",
-      //   hashed: tokengen
-      // }
+      // users.push(tokengen);
 
       loginuser.hashed = tokengen;
 
