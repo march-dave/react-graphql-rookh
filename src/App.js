@@ -7,7 +7,7 @@ class App extends Component {
     return (
       <div>
         <Basic />
-        <BasicInfo />
+        {/* <BasicInfo /> */}
         <Login />
       </div>
     );
