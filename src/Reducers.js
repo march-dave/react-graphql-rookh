@@ -8,7 +8,7 @@ const reducer = (state=initialState, action) => {
     switch(action.type) {
         case "SET_USER":
             return {
-                Object.assign({}, state , {username: action.user} 
+                Object.assign({}, state , {username: action.user}) 
             }
         default:
             return state;
