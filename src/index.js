@@ -5,6 +5,12 @@ import App from "./App";
 import ApollClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 
+import { createStore } from "redux";
+import { Provider } from "react-redux";
+import reducers from "./Reducers";
+
+const store = crateStore(reducers);
+
 const myClient = new ApollClient({
   uri: "https://react-graphql-rookh.herokuapp.com/graphql"
 });
