@@ -1,8 +1,8 @@
-const action = (user) => {
-    return {
-        type: "SET_USER",
-        user
-    }
-}
+// const action = (user) => {
+//     return {
+//         type: "SET_USER",
+//         user
+//     }
+// }
 
-export default action;
+// export default action;
